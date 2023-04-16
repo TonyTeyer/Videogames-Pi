@@ -2,7 +2,7 @@ const { createNewVideogame } = require("../controllers/videogamesPostController"
 
 
 
-const postNewVideogame = async (req, res) => {
+const postNewVideogameHandler = async (req, res) => {
     try {
         const { id, name, description, platforms, background_image, release_date, rating } = req.body;
         const newVideogame = await createNewVideogame(
@@ -23,5 +23,5 @@ const postNewVideogame = async (req, res) => {
 };
 
 module.exports = {
-    postNewVideogame,
+    postNewVideogameHandler,
 }

@@ -1,8 +1,8 @@
 const { Router } = require('express');
-const { getGenresHandler } = require('../handlers/genresHandler');
+const { getVideogamesGenresHandler } = require('../handlers/getGenresHandlers');
 
 const genresRoute = Router();
 
-genresRoute.get('/', getGenresHandler);
+genresRoute.get('/', getVideogamesGenresHandler);
 
 module.exports = genresRoute; 

@@ -1,20 +1,21 @@
 const axios = require('axios');
-const { Genres } = require('../db');
+const { Genre } = require('../db');
 require("dotenv").config();
 
+//=======solicitamos generos de la API  y los almacenamos en la DB======
 const getVideogamesGenres = async () => {
-    const response = await axios.get(`${process.env.GENRES_URL}?key=${process.env.API_KEY}`);
-    const genres = await response.data.results.map(g => g.name);
-    const count = await Genres.count();
+
+    let response = await axios.get(`${process.env.GENRES_URL}?key=${process.env.API_KEY}`)
+    let genres = await response.data.results.map(g => g.name);
+
+    const count = await Genre.count();
 
     if (count === 0) {
         genres.forEach(element => {
-            Genres.create({ name: element });
+            Genre.create({ name: element }) //getGenreDB del controller postNewVideogameController espera un objeto por aqui lo pasamos
         });
     };
     return genres;
 };
 
-module.exports = {
-    getVideogamesGenres,
-}
+module.exports = getVideogamesGenres

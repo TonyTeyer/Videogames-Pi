@@ -1,25 +1,38 @@
 const { DataTypes } = require('sequelize');
-
+// Exportamos una funcion que define el modelo
+// Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
- 
-  sequelize.define('Videogame', {
+  // defino el modelo
+  sequelize.define('videogame', {
     id: {
-      type: DataTypes.UUID, //(Universally Unique Identifier) es un valor alfanumérico que consta de 32 caracteres hexadecimales. Normalmente se representan en cinco grupos separados por guiones siguiendo el siguiente formato: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx donde cada x es un carácter hexadecimal(o-9, a-f).
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      validate: {
+        isUUID: 4,
+      },
       primaryKey: true,
       allowNull: false,
-      defaultValue: DataTypes.UUIDV4 //la versión 4 de (Universally Unique Identifier) que trae un mejor cifrado.
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    platforms: {
-      type: DataTypes.STRING,
+    platform: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
+      validate: {
+        notEmpty: true,
+        isArray: function (value) {
+          if (!Array.isArray(value)) {
+            throw new Error('platform debe ser un array');
+          }
+        }
+      }
     },
     background_image: {
       type: DataTypes.STRING,
@@ -30,12 +43,12 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     rating: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.FLOAT,
+      validate: {
+        isFloat: true,
+        max: 5.0,
+        min: 0.0,
+      }
     },
-    created: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    }
-  },{timestamps: false});
+  }, { timestamps: false });
 };

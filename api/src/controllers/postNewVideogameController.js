@@ -1,38 +1,54 @@
-const { Videogame, Genres } = require('../db');
-const axios = require('axios');
+const { Videogame, Genre } = require('../db');
 
-const createNewVideogame = async ({ name, description, platform, background_image, released, rating, genre }) => {
+//======================Crear nuevo videojuego en la Db================
+const postNewVideogame = async ({
+    name,
+    description,
+    platform,
+    background_image,
+    released,
+    rating,
+    genre }) => {
+    //verificar que no haya campos obligatorios vacios
     if (!name || !description || !platform || !background_image || !released || !rating || !genre) {
-        throw new Error('Invalid parameters');
+        throw Error('Todos los campos son obligatorios')
     };
-    const searchName = await Videogame.findAll({
+
+    //verificar que el nombre no exista en la base de datos
+    const nameExist = await Videogame.findAll({
         where: { name: name }
+    });//si el nombre existe en la base de datos lanza un error
+    if (nameExist.length !== 0) throw Error('This game already exist on your DataBase!!');
+    
+    //buscar y traer los generos del modelo Genre
+    let getGenreDB = await Genre.findAll({
+        where: {
+            name: genre
+        }
     });
-    if (searchName.length !== 0) throw Error('This videogame already exist');
 
-    let getGenreFromDb = await Genres.findAll({
-        where: { name: genre }
-    });
+    //verificar que la tabla de generos no está vacía
+    if (getGenreDB.length === 0) throw Error("Your genres table are empty!");
 
-    if (getGenreFromDb.length === 0) throw Error('Its empty');
-
-    let postNewVideogame = await Videogame.create({
+    //guardamos el nuevo juego en la base de datos
+    let newVideogame = await Videogame.create({
         name,
         description,
         platform,
         background_image,
         released,
-        rating,
-        genre,
+        rating: Number(rating),
+        genre
     });
-    await postNewVideogame.addGenres(getGenreFromDb);
-    return postNewVideogame;
+
+    await newVideogame.addGenres(getGenreDB);
+
+    return newVideogame;
 };
 
-const postNewVideogame = (form) => {
-    return createNewVideogame(form);
+//====================funcion que se va al handler 'postNewVideogameHandler'=============
+const postNewVideogameOnDb = (form) => {
+    return postNewVideogame(form);
 };
 
-module.exports = {
-    postNewVideogame,
-}
+module.exports = postNewVideogameOnDb;

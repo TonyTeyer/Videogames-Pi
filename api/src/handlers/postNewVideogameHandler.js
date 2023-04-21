@@ -1,7 +1,7 @@
-const { postNewVideogame } = require('../controllers/postNewVideogameController');
+const postNewVideogameOnDb = require('../controllers/postNewVideogameController');
 
 
-const postNewVideogameHandler = async(req, res) => {
+const postNewVideogameHandler = async (req, res) => {
     const {
         name,
         description,
@@ -9,10 +9,9 @@ const postNewVideogameHandler = async(req, res) => {
         background_image,
         released,
         rating,
-        genre
-    } = req.body;
+        genre } = req.body;
     try {
-        const newVideogame = await postNewVideogame({
+        const newVideogame = await postNewVideogameOnDb({
             name,
             description,
             platform,
@@ -23,10 +22,8 @@ const postNewVideogameHandler = async(req, res) => {
         });
         res.status(200).json(newVideogame);
     } catch (error) {
-        res.status(400).json({error: error.message});
+        res.status(400).json({ error: error.message });
     }
 };
 
-module.exports = {
-    postNewVideogameHandler,
-}
+module.exports = postNewVideogameHandler;

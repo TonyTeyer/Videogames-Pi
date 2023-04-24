@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const getGenresHandler = require('../handlers/getGenresHandler');
+const getGenresHandler  = require('../handlers/getGenresHandler');
 
 const genresRoute = Router();
 

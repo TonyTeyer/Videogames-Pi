@@ -26,9 +26,8 @@ const postNewVideogame = async ({
             name: genre
         }
     });
-
     //verificar que la tabla de generos no está vacía
-    if (getGenreDB.length === 0) throw Error("Your genres table are empty!");
+    if (getGenreDB.length === 0) throw Error("Your genres table is empty!");
 
     //guardamos el nuevo juego en la base de datos
     let newVideogame = await Videogame.create({
@@ -40,7 +39,6 @@ const postNewVideogame = async ({
         rating: Number(rating),
         genre
     });
-
     await newVideogame.addGenres(getGenreDB);
 
     return newVideogame;

@@ -2,6 +2,7 @@ const { Videogame, Genre } = require('../db');
 const axios = require('axios');
 require("dotenv").config();
 
+
 //====funciones para traer TODOS los videojuegos o por nombre====
 
 //traer todos los videojuegos
@@ -92,11 +93,8 @@ const getVideogamesByName = async (name) => {
                     genres: games.genres.map(g => g.name)
                 });
             });
-        };
-        //searchTerm hace referencia a la cadena de texto que estamos buscando exactamente
-        //El método toLowerCase() se aplica tanto a la propiedad name del objeto como a searchTerm, lo que asegura que ambos se comparen en minúsculas. Luego, el método includes() comprueba si searchTerm aparece en la cadena name (en minúsculas). Si la condición es verdadera, el objeto se incluirá en la matriz filtrada. Si es falsa, el objeto se excluye.
+        };  
 
-        // arrayGamesApi = arrayGamesApi.filter(g => g.name.toLowerCase() || g.name.toUpperCase())
         let getVideogamesByName = [...formatDbVideogames, ...formatApiVideogames].slice(0, 15);//el .slice(0, 15) es para que solo me traiga los primeros 15 juegos encontrados por nombre.
         return getVideogamesByName;
     } catch (error) {

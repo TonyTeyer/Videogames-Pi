@@ -7,9 +7,6 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      validate: {
-        isUUID: 4,
-      },
       primaryKey: true,
       allowNull: false,
     },

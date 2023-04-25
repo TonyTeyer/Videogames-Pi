@@ -1,6 +1,7 @@
 const { Videogame, Genre } = require('../db');
 const axios = require('axios');
 require("dotenv").config();
+const { Op } = require("sequelize");
 
 
 //====funciones para traer TODOS los videojuegos o por nombre====
@@ -17,7 +18,7 @@ const getAllVideogames = async () => {
             }
         }
     });
-    // mapeo lo que llega de la database
+    // mapeo y formateo lo que llega de la database
     const formatDbVideogames = dbVideogames.map(games => {
         return {
             id: games.id,
@@ -56,7 +57,9 @@ const getVideogamesByName = async (name) => {
     try {
         //busco en la db por nombre
         const dbVideogames = await Videogame.findAll({
-            where: { name: name },
+            where: {
+                name: { [Op.iLike]: `%${name}%` }
+            },
             include: {
                 model: Genre,
                 attributes: ["name"],
@@ -65,19 +68,19 @@ const getVideogamesByName = async (name) => {
                 },
             },
         });
-        //formateo lo que llega de la db
-        const formatDbVideogames = dbVideogames.map(games => {
-            return {
-                id: games.id,
-                name: games.name,
-                description: games.description,
-                platform: games.platform,
-                background_image: games.background_image,
-                released: games.released,
-                rating: games.rating,
-                genres: games.genres.map(genre => genre.name)
-            }
-        });
+        //mapeo y formateo lo que llega de la db
+            const formatDbVideogames = dbVideogames.map(games => {
+                return {
+                    id: games.id,
+                    name: games.name,
+                    description: games.description,
+                    platform: games.platform,
+                    background_image: games.background_image,
+                    released: games.released,
+                    rating: games.rating,
+                    genres: games.genres.map(genre => genre.name)
+                }
+            });
         //mapeo y pusheo al array vacio formatApiVideogames todo lo que viene de la api
         const formatApiVideogames = [];
         for (let i = 1; i <= 2; i++) {
@@ -93,8 +96,8 @@ const getVideogamesByName = async (name) => {
                     genres: games.genres.map(g => g.name)
                 });
             });
-        };  
-
+        };
+        
         let getVideogamesByName = [...formatDbVideogames, ...formatApiVideogames].slice(0, 15);//el .slice(0, 15) es para que solo me traiga los primeros 15 juegos encontrados por nombre.
         return getVideogamesByName;
     } catch (error) {

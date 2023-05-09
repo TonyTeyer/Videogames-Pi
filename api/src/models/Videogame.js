@@ -47,5 +47,9 @@ module.exports = (sequelize) => {
         min: 0.0,
       }
     },
+    price: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
   }, { timestamps: false });
 };

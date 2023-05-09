@@ -1,7 +1,7 @@
 const { Router } = require('express');
-const allVideogamesAndByNameHandler = require('../handlers/getAllVideogamesAndByNameHandler')
+const allVideogamesAndByNameHandler = require('../handlers/getAllVideogamesAndByNameHandler');
 const videogamesByIdHandler = require('../handlers/getVideogamesByIdHandler');
-const postNewVideogameHandler = require('../handlers/postNewVideogameHandler')
+const postNewVideogameHandler = require('../handlers/postNewVideogameHandler');
 
 const videogamesRoute = Router();
 

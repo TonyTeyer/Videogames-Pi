@@ -8,9 +8,10 @@ const postNewVideogame = async ({
     background_image,
     released,
     rating,
-    genre }) => {
+    genre,
+    price}) => {
     //verificar que no haya campos obligatorios vacios
-    if (!name || !description || !platform || !background_image || !released || !rating || !genre) {
+    if (!name || !description || !platform || !background_image || !released || !rating || !genre || !price) {
         throw Error('Todos los campos son obligatorios')
     };
 
@@ -37,7 +38,8 @@ const postNewVideogame = async ({
         background_image,
         released,
         rating: Number(rating),
-        genre
+        genre,
+        price
     });
     await newVideogame.addGenres(getGenreDB);
 

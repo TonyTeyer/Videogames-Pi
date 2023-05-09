@@ -104,6 +104,7 @@ const getVideogamesByName = async (name) => {
         throw Error("No existe el videojuego que buscas, intenta nuevamente.");
     }
 };
+
 //===============funciones que se van al handler 'allVideogamesAndByNameHandler'================
 
 const getVideogames = (name) => {

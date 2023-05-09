@@ -9,7 +9,9 @@ const postNewVideogameHandler = async (req, res) => {
         background_image,
         released,
         rating,
-        genre } = req.body;
+        genre,
+        price
+    } = req.body;
     try {
         const newVideogame = await postNewVideogameOnDb({
             name,
@@ -18,7 +20,8 @@ const postNewVideogameHandler = async (req, res) => {
             background_image,
             released,
             rating,
-            genre
+            genre,
+            price
         });
         res.status(200).json(newVideogame);
     } catch (error) {

@@ -21,7 +21,7 @@ export default function SearchBar() {
 
     return (
         <div className={style.container}>
-            <input autoComplete='off' className={style.input} onChange={onChangeHandler} type="search" placeholder="Name" name="name" value={games} />
+            <input autoComplete='off' className={style.input} onChange={onChangeHandler} type="search" placeholder="Videogame Name" name="name" value={games} />
             <button className={style.buttons} onClick={() => functions()}>Search</button>
         </div>
     )

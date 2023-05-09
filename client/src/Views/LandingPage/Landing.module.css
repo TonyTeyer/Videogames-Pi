@@ -1,0 +1,46 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: end;
+    align-items: center;
+           
+}
+.boxButton{
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.txt{
+    font-family: craft;
+    font-size: 5rem;
+    color: #2e61a4;
+}
+.txt1{
+  font-family: craft;
+  font-size: 5rem;
+  color: rgb(252, 123, 123);
+}
+
+         
+.button {
+  background-image: linear-gradient(to right, #2BC0E4 0%, #EAECC6  51%, #2BC0E4  100%);
+  margin: auto;
+  text-decoration: none;
+  font-family: craft;
+  font-size: 3rem;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgba(247, 0, 0, 0.85);            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.button:hover {
+  background-position: right center; 
+  color: #d78374;
+  text-decoration: none;
+}

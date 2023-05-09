@@ -67,7 +67,10 @@ export const getGenres = () => {
         return async (dispatch) => {
             const response = await axios.get('http://localhost:3001/genres')
             const data = response.data
-            return dispatch({ type: GET_GENRES, payload: data })
+            return dispatch({
+                type: GET_GENRES,
+                payload: data
+            })
         }
     } catch (error) {
         console.log(error)
@@ -76,25 +79,39 @@ export const getGenres = () => {
 
 // action traer generos filtrados
 export const getGenresFiltered = (genre) => {
-    return { type: GET_GENRES_FILTERED, payload: genre }
+    return {
+        type: GET_GENRES_FILTERED,
+        payload: genre
+    }
 }
 
 // cation ordenar por rating
 export const getGamesOrderRating = (value) => {
-    return { type: GET_GAMES_ORDER_RATING, payload: value }
+    return {
+        type: GET_GAMES_ORDER_RATING,
+        payload: value
+    }
 }
 
 // action ordenar alfabeticamente
 export const getGamesOrderAlphabetic = (value) => {
-    return { type: GET_GAMES_ORDER_ALPHABETIC, payload: value }
+    return {
+        type: GET_GAMES_ORDER_ALPHABETIC,
+        payload: value
+    }
 }
 
 // action filtrar por origen de api o db
 export const getGamesFromApiOrDb = (value) => {
-    return { type: GET_GAMES_FROM_API_OR_DB, payload: value }
+    return {
+        type: GET_GAMES_FROM_API_OR_DB,
+        payload: value
+    }
 }
 
 // action para filtrar todas las plataformas
 export const getPlatforms = () => {
-    return { type: GET_PLATFORMS }
+    return {
+        type: GET_PLATFORMS
+    }
 }

@@ -1,7 +1,6 @@
 import style from './NavBar.module.css'
 import { NavLink, useLocation } from 'react-router-dom'
 import SearchBar from '../SearchBar/SearchBar'
-
 export default function NavBar() {
 
     const location = useLocation()
@@ -9,6 +8,7 @@ export default function NavBar() {
     return (
         <div className={style.container}>
             <nav className={style.navBar}>
+            
                 <div>
                     {// la searchbar solo se va a mostrar en home 
                     location.pathname !== '/form' && !location.pathname.includes('/detail') && <SearchBar />}

@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.cardsContainer{
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content:center;
+    gap: 1.5em;
+    flex-wrap: wrap;
+}
+.cards {
+    width: 14em;
+    height: 400px;
+    background-color: rgba(32, 98, 110, 0.377);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    padding: 10px;
+    -webkit-box-shadow: inset 0px 0px 25px 7px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 25px 7px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 25px 7px rgba(0,0,0,0.75);
+    
+}
+.containerButtons {
+    width:85vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    font-family: craft;
+    font-size: 25px;
+    font-weight:bold;
+    color: white;
+    background: none;
+    border: 2px solid white;
+    backdrop-filter: blur(15px);
+}
+.buttons:hover {
+    cursor: pointer;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+}
+.prev{
+    width: 100px;
+    transform: rotate(180deg);
+}
+.next{
+    width: 100px;
+}
+.ningunJuego {
+    margin-top: 10%;
+    color: rgb(255, 0, 0);
+    width: 550px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: craft;
+    font-size: 40px;
+    text-shadow: 2px 2px 1px rgb(175, 163, 163);
+    letter-spacing: 2px;
+    animation: salto 1s steps(4) infinite;   
+}

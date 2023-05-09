@@ -1,0 +1,82 @@
+.container{
+    text-align: center;
+    margin: auto;
+}
+.image {
+    width: 100%;
+    height: 13em;
+    margin: auto;
+    border-radius: 5px;
+    
+}
+.name {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    margin-left: 27px;
+    height: 3.5em;
+    width: 8.7em;
+    font-family: craft;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 3px black;
+}
+.name:hover{
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 3px rgb(103, 228, 245);
+}
+.genresContainer{
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3px;
+    overflow: auto;
+    
+}
+
+.genres { 
+    color: white;
+    font-family: craft;
+    margin: 0;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 3px black;
+}
+
+.star 
+{
+    width: 15px;
+}
+
+.rating {
+    font-size: 15px;
+    font-family: craft;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-shadow: 2px 2px 2px black;
+    margin: 0;
+}
+
+.containerStar{
+    display: flex;
+    flex: row;
+    justify-content: center;
+    letter-spacing: 2px;
+}
+.txt{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0;  
+    font-family: craft;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 3px black;
+}

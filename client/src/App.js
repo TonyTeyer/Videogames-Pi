@@ -3,11 +3,11 @@ import './App.css';
 import Landing from './Views/LandingPage/Landing';
 import Home from './Views/Home/Home';
 import Form from './Views/Form/Form';
-import Detail from './Views/Details/Detail';
+import Detail from './Views/Detail/Detail';
 import NavBar from './components/NavBar/NavBar';
 import { Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getAllGames, getGenres } from './redux/actions';
 
 

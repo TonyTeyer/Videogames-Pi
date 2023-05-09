@@ -1,0 +1,10 @@
+.txt{
+    color: white;
+    font-family: craft;
+    letter-spacing: 4px;
+    font-size: 40px;
+    text-shadow: 3px 3px 3px black;      
+    margin: 0;
+    padding: 15px;
+    padding-top: 40px;
+}

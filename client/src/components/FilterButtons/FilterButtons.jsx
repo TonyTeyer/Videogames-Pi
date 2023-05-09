@@ -35,18 +35,19 @@ const FilterButtons = () => {
                             return <option key={genre} value={genre}>{genre}</option>
                         })
                     }
+                    
                 </select>
             </div>
             <div>
                 <select className={style.selects} onChange={filterByOrigin}>
                     <option select disabled selected={true}>Origin</option>
                     <option value="ALL">All games</option>
-                    <option value="API">From API</option>
-                    <option value="DB">Created by user</option>
+                    <option value="API">API</option>
+                    <option value="DB">DataBase</option>
                 </select>
             </div>
             <div>
-                <button className={style.selects} onClick={() => dispatch(getAllGames())}>Restart</button>
+                <button className={style.button} onClick={() => dispatch(getAllGames())}>Restart</button>
             </div>
             <div>
                 <select className={style.selects} onChange={gameOrderRating}>
@@ -58,8 +59,8 @@ const FilterButtons = () => {
             <div>
                 <select className={style.selects} onChange={gamesOrderAlphabetic}>
                     <option select disabled selected={true}>A/Z</option>
-                    <option value="Ascendente">Ascendant</option>
-                    <option value="Descendente">Descendant</option>
+                    <option value="Ascendente">Descendant</option>
+                    <option value="Descendente">Ascendant</option>
                 </select>
             </div>
         </div>

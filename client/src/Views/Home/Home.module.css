@@ -1,0 +1,13 @@
+.ordering {
+    display: flex;
+    justify-content: center;
+    gap: 42.5em;
+    font-family: craft;
+    color: black;
+    letter-spacing: 5px;    
+}
+.h2 {
+    padding-top: 13px;
+    margin: 3;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);  
+}

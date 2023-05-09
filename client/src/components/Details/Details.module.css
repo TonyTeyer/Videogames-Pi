@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    padding: 25px;
+
+}
+
+.containerDetail{
+    width: 100%;
+    backdrop-filter: blur(40px);
+    border-radius: 10px;
+}
+
+.detail {
+    display: flex;
+    flex-direction: row;
+}
+
+.imagen {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.informacion {
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.image {
+    width: 450px;
+    border-radius: 5px;
+}
+
+.info {
+    color: white;
+    font-family: craft;
+    letter-spacing: 4px;
+}
+
+.name {
+    color: rgba(36, 221, 253, 0.948);
+    font-family: craft;
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 2px black;   
+}
+
+span {
+    letter-spacing: 1px;
+}
+
+b {
+    letter-spacing: 2px;
+    color:rgb(252, 123, 123);
+    text-shadow: 2px 2px 2px black;
+}
+
+
+.contLoading {
+    height: 100%;
+}
+
+.loading {
+    color: rgb(255, 10, 10);
+    font-family: craft;
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 2px rgb(255, 255, 255);
+    padding-top: 7em;
+    padding-bottom: 7em;
+    
+}
